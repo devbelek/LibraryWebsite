@@ -1,0 +1,46 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}
+    <!-- Добавьте ваш заголовок здесь, если нужно -->
+{% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3" style="color: red">
+            <!-- Добавьте любое содержимое или удалите эту колонку, если не нужно -->
+        </div>
+
+        <div class="col-sm-6" style="padding-top: 25px">
+            <div class="card">
+                <!-- Добавьте содержимое для карточки, если нужно -->
+            </div>
+
+            <div class="card mb-2">
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            {% for feedback in feedbacks %}
+                            <div class="chat" style="width: 100%; background: white; box-shadow: 2px 0px 25px 20px #111;">
+                                <!-- Отображение каждого сообщения обратной связи -->
+                                <p class="feedback-message">"{{ feedback }}"</p>
+                                <p class="feedback-author">- {{ feedback.author }} говорит, {{ feedback.date }}</p>
+                            </div><br><br><br>
+                            {% empty %}
+                            <!-- Показ сообщения, если отзывов нет -->
+                            <h1 class="heading">Нет отзывов</h1><br>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3" style="color: red">
+            <!-- Добавьте любое содержимое или удалите эту колонку, если не нужно -->
+        </div>
+    </div>
+</div>
+{% endblock content %}

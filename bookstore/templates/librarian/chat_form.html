@@ -1,0 +1,47 @@
+{% extends 'librarian/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3" style="color: лиловый">
+      <p style="color: синий"></p>
+    </div>
+
+
+    <div class="col-sm-6" style="padding-top: 65px;">
+      <div class="card"></div>
+
+      <div class="card mb-2">
+        <div class="card-body">
+
+          <div class="row" style="background-color: #BDB5D5">
+            <div class="card col-sm-12">
+              <div class="card-header text-primary">
+                <center>Добро пожаловать в чат BookApp</center>
+              </div>
+            </div>
+
+            <div class="col-sm-8">
+              <div class="myform">
+                <form method="POST">
+                	{% csrf_token %}
+                	{{ form.as_p }}
+
+                	<br><input type="submit" value="Отправить" class="btn btn-lg btn-outline-primary">
+                </form>
+            </div>
+
+            <div class="col-sm-4"></div>
+          </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-sm-2" style="color: фиолетовый"></div>
+  </div>
+</div>
+{% endblock content %}

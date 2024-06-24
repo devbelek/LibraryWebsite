@@ -1,0 +1,93 @@
+{% load static %}
+
+<head>
+    <title>BookApp</title>
+</head>
+
+<body style="background-image: url('{% static 'bookstore/img/background.jpg' %}'); background-size: cover; background-repeat: no-repeat;">
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <div class="container">
+    <br>
+
+    <div class="row">
+      <aside class="col-sm-4">
+      </aside>
+
+      <div class="card">
+        <article class="card-body" style="padding-top: 0px">
+          <div class="d-flex justify-content-center">
+
+            <div class="container">
+
+              <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                  <div class="card-header">
+                    <center><h3>Вход</h3></center>
+                      <div class="d-flex justify-content-end">
+                        <span><i class="fab fa-user"></i></span>
+                      </div>
+                    </div>
+
+                    <div class="card-body">
+
+                      <form method="POST" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="input-group form-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          </div>
+                          <input type="text" class="form-control" placeholder="имя пользователя" name="username" required="">
+
+                        </div>
+
+                        <div class="input-group form-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                          </div>
+                          <input type="password" class="form-control" placeholder="пароль" name="password" required="">
+                        </div>
+
+                        <div class="form-group">
+                          <input type="submit" name="sign-in" value="Войти" class="btn float-left login_btn">
+                        </div>
+                        <div class="form-group">
+                          <a href="{% url 'regform' %}"><input name="sign-up" value="Регистрация" class="btn float-right login_btn"></a>
+                        </div>
+                      </form>
+
+                      </div>
+
+                      <!--сообщения здесь -->
+                      <div class="card-footer">
+                        <div class="d-flex justify-content-center">
+                          {% if messages %}
+                          <div class="messages">
+                            {% for message in messages %}
+
+                            <a class="alert alert-success" style="color:red;"> {{ message }}</a>
+
+                            {% endfor %}
+                          </div>
+                            {% endif %}
+                        </div>
+                      </div>
+
+                  </div>
+                </div>
+
+            </div>
+
+          </div>
+        </article>
+      </div> <!-- divcard -->
+    </div>
+
+  </div>
+</body>
